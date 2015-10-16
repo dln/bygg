@@ -1,0 +1,11 @@
+[package]
+name = "bygg"
+version = "0.1.0"
+authors = ["Daniel Lundin <dln@eintr.org>"]
+
+[dependencies]
+docopt = "0.6.73"
+env_logger = "0.3.1"
+log = "0.3.2"
+rustc-serialize = "0.3.16"
+toml = "0.1.23"

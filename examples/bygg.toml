@@ -1,0 +1,23 @@
+name = "eintr.org/myexample"
+
+[labels]
+version = "1.0.0"
+arch = "amd64"
+os = "linux"
+
+[app]
+exec = [ "/opt/myexample/bin/myexample-server" ]
+user = "0"
+group = "0"
+environment = { JVM_OPT = "-agentlib:heapster" }
+mountPoints = [
+  { name = "foo", path = "/tmp/foo" },
+  { name = "bar", path = "/tmp/bar", readOnly = true }
+]
+
+[build.shell]
+script = '''
+  ./build-support/build.sh
+  mdir -p /opt
+  cp -a server/target/pack /opt/myexample
+'''
